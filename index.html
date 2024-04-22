@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>김박신</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #0056b3;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+        hr {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 3px solid #eee;
+        }
+        img {
+            width: 100%;
+            max-width: 500px;
+            border: 5px solid #555;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        #clock {
+            font-size: 24px;
+            background: #e1e1e1;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #0056b3;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            display: none;
+            opacity: 0.7;
+        }
+        .back-to-top:hover {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var clock = document.getElementById('clock');
+            var backToTopButton = document.querySelector('.back-to-top');
+            setInterval(function () {
+                var now = new Date();
+                clock.innerHTML = now.toLocaleTimeString() + ', ' + now.toDateString();
+            }, 1000);
+
+            window.onscroll = function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            };
+
+            backToTopButton.onclick = function() {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            };
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>김박신</h1>
+        <hr>
+        <h2>안녕하세요 저희는 DL을 활용한 육가공 소프트웨어 스타트업입니다.</h2>
+        <p>저희는 육가공 업체를 위해 개발된 혁신적인 딥러닝 기반 이미지 분석 솔루션을 제공합니다. 이 프로젝트는 실시간으로 촬영된 고기 이미지를 분석하여, 지방과 살코기의 경계를 정밀하게 표시합니다. 이를 통해 육가공 과정의 자동화 및 최적화를 실현하여, 생산성을 향상시키고 비용을 절감할 수 있습니다.</p>
+        <img src="meat1.jpg" width="560" height="415" alt="고기 처리 과정">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/emiZzGr5Zes?si=Bq_wiXCI6Kpo9Ooq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <br>
+        <h2>핵심 기술</h2>
+        <ul>
+            <li>DL: YOLACT(You Only Look At CoefficienTs) 모델을 활용하여 고기 이미지의 세밀한 특징을 파악하고, 실시간으로 지방과 살코기의 경계를 세그먼트합니다.</li>
+            <li>실시간 이미지 처리: 고속 카메라와 연동하여 실시간으로 들어오는 이미지를 처리하고, 즉시 분석 결과를 제공합니다.</li>
+        </ul>
+        <br>
+        <h2>기대 효과</h2
+        <p>이 기술을 도입함으로써 육가공 업체는 가공 과정의 정확도를 향상시킬 수 있으며, 제품의 일관성을 유지하면서 생산 효율을 높일 수 있습니다. 또한, 인력 의존도를 줄이면서 운영 비용을 절감할 수 있을 것으로 기대됩니다.</p>
+        <br>
+        <h2>Contact Us</h2>
+        <p>본 프로젝트에 관심이 있는 업체나 개발자는 GitHub 페이지 또는 이메일을 통해 저희와 연락할 수 있습니다. 프로젝트의 개발에 참여하고자 하는 기술자들은 풀 리퀘스트를 통해 기여할 수 있으며, 육가공 업체들은 이 기술을 시범적으로 도입해볼 수 있습니다.</p>
+        <p>GitHub: <a href="https://github.com/kps123">https://github.com/kps123</a></p>
+        <p>김성래: kim@email.com<br>
+        박상인: park@email.com<br>
+        신인호: shin@email.com</p>
+        <h1 id="clock"></h1>
+        <div class="back-to-top">Back to Top</div>
+    </div>
+</body>
+</html>
