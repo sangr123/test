@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence and Derivatives</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333366;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .content-section {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .formula {
+            background-color: #f4f4f4;
+            border-left: 5px solid #333366;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>인공지능에서의 미분</h1>
+    <p>입력층 → 은닉층 → 출력층 → 오차 발생 → 출력층 → 은닉층 → 입력층</p>
+    <img src="ANN.png" width="560" height="415" alt="Neural Network Flow">
+    <img src="node.png" width="560" height="415" alt="Node">
+
+    <div class="content-section">
+        <p>각 노드는 들어오는 모든 입력값에 가중치를 곱해서 더한 후 편향을 더한다.</p>
+        <p>그리고 활성화 함수(시그모이드 함수, 렐루 함수 등)를 거쳐 다음 노드로 값을 보낸다.</p>
+        <p>이렇게 은닉층을 거쳐 출력층에서 출력된 값을 정답 값과 비교하여 오차를 계산한다.</p>
+        <div class="formula">오차 = (정답 값 - 예측 값)^2</div>
+        <p>계산된 오차는 역전파 알고리즘을 통해 새로운 가중치와 편향을 업데이트한다.</p>
+        <p>이때 <strong>미분</strong>이 활용된다.</p>
+        <p>미분이 사용되는 이유는 가중치와 편향이 손실 함수에 대한 기울기에 따라 어떻게 변화하는지를 계산하기 위해서이다.</p>
+    </div>
+
+    <h2>미분</h2>
+    <ul>
+        <li>x에 대하여 편미분 → x를 제외한 나머지 변수는 상수 취급하며 미분한다.</li>
+        <li>곱 법칙 - f(x)와 g(x)가 모두 미분 가능하다면, f(x)의 도함수와 g(x)의 곱'과 f(x)와 g(x)도함수의 곱을 더한 것과 같다.</li>
+        <li>몫 법칙 - f(x)와 g(x) 모두 미분 가능하다면, 분자의 도함수에 분모를 곱하고 분자에 분모의 도함수를 곱해서 뺀값을 분모의 제곱으로 나눈 것과 같다.</li>
+        <li>연쇄 법칙 - 두 함수를 합성한 합성 함수의 미분법으로, Z가 주어졌을때, 집합 X의 임의의 원소x에 대해 f(x)를 두함수f: X → Y, g: Y → Z 대응시키고, f(x)를 g(f(x))에 대응시켜서 X에서 Z로의 함수를 만들 수 있음</li>
+    </ul>
+    <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/58a1bd38-cdd8-4379-9339-3ee7a0b2cd2e/537686b9-c94c-4971-8ac2-5c9f848efc94/Untitled.png" alt="Derivative Rules">
+    
+    <h2>오차 역전파</h2>
+    <p>역전파는 계산 결과와 정답의 오차를 구해서 이 오차에 관여하는 노드 값들의 가중치와 편향을 수정함</p>
+    <p>횟수, 정확성, 시간은 비례함 예) 회수가 증가하면 정확성과 걸리는 시간이 증가함</p>
+    <p>이 횟수의 주기를 1에포크(epoch)라고 함</p>
+    <p>에포크를 늘리면서 가중치와 편향을 업데이트하여 점점 오차를 줄여 나감</p>
+    <img src="backpro.png" width="560" height="415" alt="back propargation">
+</body>
+</html>
